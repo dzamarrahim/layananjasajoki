@@ -30,7 +30,19 @@ Route::resource('pelanggan',PelangganController::class)->except('destroy')->midd
 
 Route::resource('layanan',LayananController::class)->middleware('auth');
 
-Route::resource('user',UserController::class)->except('destroy','create','show','update','edit')->middleware('auth');
+Route::resource('user',UserController::class)->except('destroy','create','show','update','edit');
 
 Route::get('login',[LoginController::class,'loginView'])->name('login');
 Route::post('login',[LoginController::class,'authenticate']);
+
+Route::get('penjualan',function(){
+    return view('penjualan.index',[
+        "title"=>"Penjualan"
+    ]);
+})->middleware('auth');
+
+Route::get('transaksi',function(){
+    return view('penjualan.transaksis',[
+        "title"=>"Transaksi"
+    ]);
+})->middleware('auth');

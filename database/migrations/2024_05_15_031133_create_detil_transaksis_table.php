@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detiltransaksis', function (Blueprint $table) {
+        Schema::create('detil_transaksis', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('transaksi_id')->unsigned();
             $table->bigInteger('layanan_id')->unsigned();
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::table('detiltransaksis', function(Blueprint $table) {
+        Schema::table('detil_transaksis', function(Blueprint $table) {
             $table->foreign('transaksi_id')->references('id')->on('transaksis')
                   ->onUpdate('cascade') ->onDelete('cascade');
             $table->foreign('layanan_id')->references('id')->on('layanans')
@@ -37,23 +37,23 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('detiltransaksis', function(Blueprint $table) {
+        Schema::table('detil_transaksis', function(Blueprint $table) {
             $table->dropForeign('detiltransaksis_transaksi_id_foreign');
         });
    
-        Schema::table('detiltransaksis', function(Blueprint $table) {
+        Schema::table('detil_transaksis', function(Blueprint $table) {
             $table->dropIndex('detiltransaksis_transaksi_id_foreign');
         });
 
-        Schema::table('detiltransaksis', function(Blueprint $table) {
+        Schema::table('detil_transaksis', function(Blueprint $table) {
             $table->dropForeign('detiltransaksis_layanan_id_foreign');
         });
    
-        Schema::table('detiltransaksis', function(Blueprint $table) {
+        Schema::table('detil_transaksis', function(Blueprint $table) {
             $table->dropIndex('detiltransaksis_layanan_id_foreign');
         });
        
-        Schema::dropIfExists('detiltransaksis');
+        Schema::dropIfExists('detil_transaksis');
 
     }
 };
