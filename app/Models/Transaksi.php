@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Transaksi extends Model
 {
     use HasFactory;
-    protected $fillable=['invoice','pelanggan_id','user_id','total'];
+    protected $fillable=['invoice','pelanggan_id','user_id','qty','total'];
 
     public function detiltransaksi():HasMany {
         return $this->hasMany(DetilTransaksi::class);

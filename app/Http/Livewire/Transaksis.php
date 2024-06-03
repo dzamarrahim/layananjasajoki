@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+namespace App\Http\Livewire;
+
 use App\Models\Transaksi;
 use App\Models\DetilTransaksi;
 use App\Models\Layanan;
@@ -15,87 +17,93 @@ class Transaksis extends Component
     public $total;
     public $transaksi_id;
     public $layanan_id;
-    public $qty=1;
+    public $qty = 1;
     public $uang;
     public $kembali;
 
     public function render()
     {
-        $transaksi=Transaksi::select('*')->where('user_id','=',Auth::user()->id)->orderBy('id','desc')->first();
+        $transaksi = Transaksi::where('user_id', Auth::id())->orderBy('id', 'desc')->first();
+        
+        if ($transaksi) {
+            $this->total = $transaksi->total;
+            $this->kembali = $this->uang - $this->total;
+        }
 
         $datalayanan = Layanan::all();
-        $this->total=$transaksi->total;
-        $this->kembali=$this->uang-$this->total;
-        return view('livewire.transaksis')
-        ->with('datalayanan', $datalayanan)
-        ->with("data",$transaksi)
-        ->with("dataTransaksiDetail",DetilTransaksi::where('transaksi_id','=',$transaksi->id)->get());
+        $dataTransaksiDetail = $transaksi ? DetilTransaksi::where('transaksi_id', $transaksi->id)->get() : collect();
+
+        return view('livewire.transaksis', [
+            'data' => $transaksi,
+            'datalayanan' => $datalayanan,
+            'dataTransaksiDetail' => $dataTransaksiDetail
+        ]);
     }
 
     public function store()
     {
         $this->validate([
-            
-            'layanan_id'=>'required'
+            'layanan_id' => 'required'
         ]);
-        $transaksi=Transaksi::select('*')->where('user_id','=',Auth::user()->id)->orderBy('id','desc')->first();
-        $this->transaksi_id=$transaksi->id;
-        $layanan=Layanan::where('id','=',$this->layanan_id)->get();
-        $harga=$layanan[0]->price;
+
+        $transaksi = Transaksi::where('user_id', Auth::id())->orderBy('id', 'desc')->first();
+        if (!$transaksi) {
+            return;
+        }
+
+        $this->transaksi_id = $transaksi->id;
+
+        $layanan = Layanan::find($this->layanan_id);
+        if (!$layanan) {
+            return;
+        }
+
+        $harga = $layanan->harga;
+        if (is_null($harga)) {
+            return;
+        }
+
         DetilTransaksi::create([
-            'transaksi_id'=>$this->transaksi_id,
-            'layanan_id'=>$this->layanan_id,
-            'qty'=>$this->qty,
-            'price'=>$harga
+            'transaksi_id' => $this->transaksi_id,
+            'layanan_id' => $this->layanan_id,
+            'qty' => $this->qty,
+            'harga' => $harga
         ]);
-        
-        
-        $total=$transaksi->total;
-        $total=$total+($harga*$this->qty);
-        Transaksi::where('id','=',$this->transaksi_id)->update([
-            'total'=>$total
-        ]);
-        $this->layanan_id=NULL;
-        $this->qty=1;
+
+        $total = $transaksi->total + ($harga * $this->qty);
+        $transaksi->update(['total' => $total]);
+
+        $this->layanan_id = null;
+        $this->qty = 1;
     }
 
     public function delete($detiltransaksi_id)
     {
-        $detiltransaksi=DetilTransaksi::find($detiltransaksi_id);
+        $detiltransaksi = DetilTransaksi::find($detiltransaksi_id);
+        if (!$detiltransaksi) {
+            return;
+        }
+
         $detiltransaksi->delete();
 
-        //update total
-        $detiltransaksi=DetilTransaksi::select('*')->where('transaksi_id','=',$this->transaksi_id)->get();
-        $total=0;
-        foreach($detiltransaksi as $od){
-            $total+=$od->qty*$od->price;
+        // Update total
+        $detiltransaksi = DetilTransaksi::where('transaksi_id', $this->transaksi_id)->get();
+        $total = 0;
+        foreach ($detiltransaksi as $od) {
+            $total += $od->qty * $od->harga;
         }
-        
-        try{
-            Transaksi::where('id','=',$this->transaksi_id)->update([
-                'total'=>$total
+
+        try {
+            Transaksi::where('id', $this->transaksi_id)->update([
+                'total' => $total
             ]);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             dd($e);
         }
     }
 
     public function receipt($id)
     {
-        //update stok
-        $detiltransaksi=DetilTransaksi::select('*')->where('transaksi_id','=', $id)->get();
-        //dd($order_detail);
-        foreach ($detiltransaksi as $od) {
-            $stocklama=Layanan::select('stock')->where('id','=', $od->layanan_id)->sum('stock');
-            $stock=$stocklama - $od->qty;
-            try {
-                Layanan::where('id','=', $od->layanan_id)->update([
-                    'stock' => $stock
-                ]);
-            } catch (Exception $e) {
-                dd($e);
-            }
-        }
-        return Redirect::route('cetakReceipt')->with(['id'=>$id]);
+        return Redirect::route('cetakReceipt')->with(['id' => $id]);
     }
 }

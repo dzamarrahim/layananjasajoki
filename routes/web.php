@@ -5,6 +5,7 @@ use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CetakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,5 @@ Route::get('transaksi',function(){
         "title"=>"Transaksi"
     ]);
 })->middleware('auth');
+
+Route::get('cetakReceipt',[CetakController::class,'receipt'])->name('cetakReceipt')->middleware('auth');
