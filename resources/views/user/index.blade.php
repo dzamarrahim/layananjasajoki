@@ -56,7 +56,7 @@
 <div class="col-md-8">
     <div class="card card-info">
         <div class="card-header">
-            <h3 class="card-title">Data Category</h3>
+            <h3 class="card-title">Data Users</h3>
         </div>
         <!-- /.card-header -->
 
