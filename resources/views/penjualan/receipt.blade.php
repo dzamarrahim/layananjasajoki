@@ -23,7 +23,7 @@ body{
 </head>
 <body>
 
-<p>invoice:{{ $dataTransaksi->invoice}}<br>Pelanggan:{{ $dataTransaksi->pelanggan->nama}}<br>Cashier:{{ Auth::user()->name}}<br>Tanggal:{{$dataTransaksi->created_at->format('d M Y H:m')}}</p>
+<p>Invoice:{{ $dataTransaksi->invoice}}<br>Pelanggan:{{ $dataTransaksi->pelanggan->nama}}<br>Cashier:{{ Auth::user()->name}}<br>Tanggal:{{$dataTransaksi->created_at->format('d M Y H:m')}}</p>
 <table>
     <thead>
         <tr>
@@ -37,8 +37,8 @@ body{
 <tr>
             <td>{{ $dod->layanan->nama }}</td>
             <td>{{$dod->qty}}</td>
-            <td>@money($dod->price)</td>
-            <td>@money($dod->price*$dod->qty)</td>
+            <td>@money($dod->harga)</td>
+            <td>@money($dod->harga*$dod->qty)</td>
         </tr>
 
 @endforeach
