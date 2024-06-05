@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CetakController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,5 @@ Route::get('transaksi',function(){
 Route::get('cetakReceipt',[CetakController::class,'receipt'])->name('cetakReceipt')->middleware('auth');
 
 Route::get('/',[WelcomeController::class,'welcome'])->middleware('auth');
+
+Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');

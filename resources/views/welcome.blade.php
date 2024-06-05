@@ -12,11 +12,11 @@
     <div class="row">
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box shadow-none">
-                <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+                <span class="info-box-icon bg-info"><img src="{{ asset('dist/img/ml.jpeg')}}" alt="AdminLTE Logo"></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Hardware</span>
-                    <span class="info-box-number">None</span>
+                    <span class="info-box-text">Mobile Legends</span>
+                    <span class="info-box-number">Rp. 200.000</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -67,7 +67,7 @@
 
     <!-- =========================================================== -->
     <div class="container-fluid p-0">
-        <h1 class="h3 mb-1 mt-3">
+        <h1 class="h3 mb-2 mt-3">
             <strong>Transaksi</strong> Tercatat
         </h1>
         <div class="row">
@@ -75,9 +75,9 @@
                 <div class="card">
                     <div class="card-body info-box-icon bg-primary">
                         <div class="row ">
-                            <div class="col mt-0 ">
+                            <div class="col mt-0 mb-4">
                                 <h5 class="card-title-">
-                                    Saldo Harian
+                                    Pendapatan Harian
                                 </h5>
                             </div>
 
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <h2 class="mt-3 mb-3">
-                            Rp. 10.000.000
+                        @money($totalpenjualan)
                         </h2>
                         <div class="mb-0">
                             <span class="text">
@@ -108,7 +108,7 @@
                         <div class="row ">
                             <div class="col mt-0 ">
                                 <h5 class="card-title-">
-                                    Saldo Bulanan
+                                    Pendapatan Bulanan
                                 </h5>
                             </div>
 
@@ -139,7 +139,7 @@
                         <div class="row ">
                             <div class="col mt-0 ">
                                 <h5 class="card-title-">
-                                    Saldo Tahunan
+                                    Pendapatan Tahunan
                                 </h5>
                             </div>
 
@@ -168,9 +168,9 @@
                 <div class="card">
                     <div class="card-body info-box-icon bg-danger">
                         <div class="row ">
-                            <div class="col mt-0 ">
+                            <div class="col mt-0 mb-4">
                                 <h5 class="card-title-">
-                                    Saldo Akhir
+                                    Total Pendapatan
                                 </h5>
                             </div>
 
