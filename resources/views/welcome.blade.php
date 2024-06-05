@@ -7,12 +7,12 @@
 
     <!-- =========================================================== -->
     <h1 class="h3 mb-1">
-        <strong>Layanan</strong> Tercatat
+        <strong>Layanan Jasa Joki</strong> Tercatat
     </h1>
     <div class="row">
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box shadow-none">
-                <span class="info-box-icon bg-info"><img src="{{ asset('dist/img/ml.jpeg')}}" alt="AdminLTE Logo"></span>
+                <span class="info-box-icon bg-info"><img src="{{ asset('dist/img/ml-icon.png')}}" alt="Mobile Legends"></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Mobile Legends</span>
@@ -25,7 +25,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box shadow-sm">
-                <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+                <span class="info-box-icon bg-success"><img src="{{ asset('dist/img/ff-icon.png')}}" alt="Free Fire"></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Software</span>
@@ -38,7 +38,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box shadow">
-                <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+                <span class="info-box-icon bg-warning"><img src="{{ asset('dist/img/pubg-icon.png')}}" alt="PUBG"></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Jasa</span>
@@ -51,7 +51,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box shadow-lg">
-                <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+                <span class="info-box-icon bg-danger"><img src="{{ asset('dist/img/aov-icon.png')}}" alt="AOV"></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Barang</span>
