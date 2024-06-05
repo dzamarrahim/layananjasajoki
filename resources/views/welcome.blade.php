@@ -28,8 +28,8 @@
                 <span class="info-box-icon bg-success"><img src="{{ asset('dist/img/ff-icon.png')}}" alt="Free Fire"></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Software</span>
-                    <span class="info-box-number">Small</span>
+                    <span class="info-box-text">Free Fire</span>
+                    <span class="info-box-number">Rp. 150.000</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -41,8 +41,8 @@
                 <span class="info-box-icon bg-warning"><img src="{{ asset('dist/img/pubg-icon.png')}}" alt="PUBG"></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Jasa</span>
-                    <span class="info-box-number">Regular</span>
+                    <span class="info-box-text">PUBG</span>
+                    <span class="info-box-number">Rp. 300.000</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -54,8 +54,8 @@
                 <span class="info-box-icon bg-danger"><img src="{{ asset('dist/img/aov-icon.png')}}" alt="AOV"></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Barang</span>
-                    <span class="info-box-number">Large</span>
+                    <span class="info-box-text">AOV</span>
+                    <span class="info-box-number">Rp. 450.000</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
