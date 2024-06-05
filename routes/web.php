@@ -6,6 +6,7 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CetakController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,5 @@ Route::get('transaksi',function(){
 })->middleware('auth');
 
 Route::get('cetakReceipt',[CetakController::class,'receipt'])->name('cetakReceipt')->middleware('auth');
+
+Route::get('/',[WelcomeController::class,'welcome'])->middleware('auth');
