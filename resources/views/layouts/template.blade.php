@@ -117,7 +117,7 @@
                                 <li class="nav-item">
                                     <a href="{{ route('layanan.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Input Produk</p>
+                                        <p>Input Layanan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
