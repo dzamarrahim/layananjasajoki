@@ -88,14 +88,14 @@
                             </div>
                         </div>
                         <h2 class="mt-3 mb-3">
-                        @money($totalpenjualan)
+                        @money($penjualanday)
                         </h2>
                         <div class="mb-0">
                             <span class="text">
                                 <i class="mdi mdi-arrow-bottom-right"></i>
                                 
                             </span>
-                            <span class="text">Since <strong>Last Month</strong></span>
+                            <span class="text">Sejak <strong>1 Hari Terakhir</strong></span>
                         </div>
                     </div>
                 </div>
@@ -119,14 +119,14 @@
                             </div>
                         </div>
                         <h2 class="mt-3 mb-3">
-                            Rp. 20.000.000
+                        Rp. 20.000.000
                         </h2>
                         <div class="mb-0">
                             <span class="text">
                                 <i class="mdi mdi-arrow-bottom-right"></i>
-                                -3.65%
+                                
                             </span>
-                            <span class="text">Since <strong>Last Month</strong></span>
+                            <span class="text">Sejak <strong>1 Bulan Terakhir</strong></span>
                         </div>
                     </div>
                 </div>
@@ -155,9 +155,9 @@
                         <div class="mb-0">
                             <span class="text">
                                 <i class="mdi mdi-arrow-bottom-right"></i>
-                                -3.65%
+                                
                             </span>
-                            <span class="text">Since <strong>Last Month</strong></span>
+                            <span class="text">Sejak <strong>1 Tahun Terakhir</strong></span>
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
                             </div>
                         </div>
                         <h2 class="mt-3 mb-3">
-                            Rp. 67.000.000
+                        @money($totalpenjualan)
                         </h2>
                         <div class="mb-0">
                             <span class="text">

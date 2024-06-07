@@ -32,10 +32,14 @@ class WelcomeController extends Controller
             $data_pendapatan[] += $pendapatan;
 
             $tanggal_awal = date('Y-m-d', strtotime("+1 day", strtotime($tanggal_awal)));
-            
+
+            // Menampilkan Pendapatan Total
             $transaksi = Transaksi::All();
             $totalpenjualan = Transaksi::sum('total');
-            
+
+            // Menampilkan Pendapatan Hari Ini
+            $penjualanday = Transaksi::whereDate('created_at', now()->format('y-m-d'))->sum('total');
+
         }
 
         return view('welcome',[
@@ -43,7 +47,8 @@ class WelcomeController extends Controller
             "layanan"=> $layanan,
             "user"=>$user,
             "totalpenjualan"=>$totalpenjualan,
-            "datatransaksi" => Transaksi::paginate(5),
+            "penjualanday"=>$penjualanday,  
+            "datatransaksi" => Transaksi::latest()->take(5)->get(),
             "title"=>"Dashboard"
         ]);
         
