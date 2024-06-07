@@ -75,7 +75,7 @@
                 <div class="card">
                     <div class="card-body info-box-icon bg-primary">
                         <div class="row ">
-                            <div class="col mt-0 mb-4">
+                            <div class="col mt-0">
                                 <h5 class="card-title-">
                                     Pendapatan Harian
                                 </h5>
@@ -106,7 +106,7 @@
                 <div class="card">
                     <div class="card-body info-box-icon bg-success">
                         <div class="row ">
-                            <div class="col mt-0 ">
+                            <div class="col mt-0">
                                 <h5 class="card-title-">
                                     Pendapatan Bulanan
                                 </h5>
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <h2 class="mt-3 mb-3">
-                        Rp. 20.000.000
+                        @money($penjualanmonth)
                         </h2>
                         <div class="mb-0">
                             <span class="text">
@@ -137,7 +137,7 @@
                 <div class="card">
                     <div class="card-body info-box-icon bg-warning">
                         <div class="row ">
-                            <div class="col mt-0 ">
+                            <div class="col mt-0">
                                 <h5 class="card-title-">
                                     Pendapatan Tahunan
                                 </h5>
@@ -150,7 +150,7 @@
                             </div>
                         </div>
                         <h2 class="mt-3 mb-3">
-                            Rp. 53.000.000
+                        @money($penjualanyear)
                         </h2>
                         <div class="mb-0">
                             <span class="text">
@@ -168,7 +168,7 @@
                 <div class="card">
                     <div class="card-body info-box-icon bg-danger">
                         <div class="row ">
-                            <div class="col mt-0 mb-4">
+                            <div class="col mt-0">
                                 <h5 class="card-title-">
                                     Total Pendapatan
                                 </h5>
@@ -186,9 +186,9 @@
                         <div class="mb-0">
                             <span class="text">
                                 <i class="mdi mdi-arrow-bottom-right"></i>
-                                -3.65%
+                                
                             </span>
-                            <span class="text">Since <strong>Last Month</strong></span>
+                            <span class="text">Total <strong>Transaksi All Time</strong></span>
                         </div>
                     </div>
                 </div>
@@ -196,9 +196,6 @@
             </div>
             <!-- /.col -->
         </div>
-
-
-
 
 
         <!-- =========================================================== -->
@@ -233,6 +230,18 @@
                 </tbody>
             </table>
 
+        </div>
+
+        <h1 class="h3 mb-1 mt-3">
+            <strong>Transaksi</strong> Terakhir
+        </h1>
+        <div class="col-xl-12 col-xxl-7">
+          <div class="card flex-fill w-100">
+            <div class="card-body">
+            {!! $chart->container() !!}
+            </div>
+          </div>
+          <!-- /.card-body -->
         </div>
 
 
@@ -287,14 +296,29 @@
               <a href="{{ route('layanan.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$notransaksi}}</h3>
+
+                <p>Transaksi</p>
+              </div>
+              <div class="icon">
+              <i class="fa fa-store"></i>
+              </div>
+              <a href="penjualan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
           </div>
           <!-- ./col -->
-        </div>
         <!-- /.row -->
     </div><!-- /.container-fluid -->
+    <script src="{{ $chart->cdn() }}"></script>
+    {{ $chart->script() }}
 
 
     @endsection
