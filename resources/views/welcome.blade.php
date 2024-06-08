@@ -233,7 +233,7 @@
         </div>
 
         <h1 class="h3 mb-1 mt-3">
-            <strong>Transaksi</strong> Terakhir
+            <strong>Grafik</strong> Total Transaksi
         </h1>
         <div class="col-xl-12 col-xxl-7">
           <div class="card flex-fill w-100">
@@ -298,14 +298,14 @@
           </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-danger">
               <div class="inner">
                 <h3>{{$notransaksi}}</h3>
 
                 <p>Transaksi</p>
               </div>
               <div class="icon">
-              <i class="fa fa-store"></i>
+              <i class="ion ion-bag"></i>
               </div>
               <a href="penjualan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>

@@ -232,6 +232,34 @@
         <script src="{{ asset('dist/js/adminlte.min.js')}}"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="{{ asset('dist/js/demo.js')}}"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            $(function() {
+                $(document).on('click', '#delete', function(e) {
+                    e.preventDefault();
+                    var link = $(this).attr("href");
+
+                    Swal.fire({
+                        title: "Apakah Kamu Yakin Ingin Menghapus Data Tersebut?",
+                        text: "Kamu Tidak Bisa Mengembalikan Data Tersebut Jika Dihapus!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Ya, Hapus!"
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                            title: "Data Sudah Terhapus!",
+                            text: "Data Kamu Sudah Berhasil Dihapus!",
+                            icon: "success"
+                            });
+                        }
+                        });
+                })
+            })
+        </script>
     </aside>
     <!-- /.control-sidebar -->
     </div>
