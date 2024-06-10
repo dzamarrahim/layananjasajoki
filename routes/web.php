@@ -23,6 +23,7 @@ use App\Http\Controllers\LaporanController;
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
+
 Route::get('/',function(){
     return view('welcome',[
         "title"=>"Dashboard"

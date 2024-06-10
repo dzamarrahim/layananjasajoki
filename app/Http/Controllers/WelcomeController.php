@@ -49,6 +49,7 @@ class WelcomeController extends Controller
             // Menampilkan Pendapatan Bulan Ini
             $penjualanmonth = Transaksi::whereYear('created_at', $tahun)->whereMonth('created_at', $bulan)->sum('total');
 
+            // Menambahkan Pendapatan Tahun Ini
             $penjualanyear = Transaksi::whereYear('created_at', $tahun)->sum('total'); 
         }
         
